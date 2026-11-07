@@ -1,7 +1,5 @@
--- Moota Webhook Testing Lab V1
--- Run this script in Supabase SQL Editor.
-
-create extension if not exists pgcrypto;
+-- Optional manual bootstrap schema for Moota Webhook Testing Lab V1.1.
+-- Normal Vercel deployments apply the matching file in supabase/migrations automatically.
 
 create table if not exists public.transactions (
   id uuid primary key default gen_random_uuid(),
@@ -54,8 +52,6 @@ create index if not exists webhook_deliveries_received_at_idx on public.webhook_
 create index if not exists moota_mutations_received_at_idx on public.moota_mutations(received_at desc);
 create index if not exists moota_mutations_transaction_id_idx on public.moota_mutations(transaction_id);
 
--- All database access is server-side via the Supabase service role key.
--- Enable RLS and do not add anon/authenticated policies for this testing app.
 alter table public.transactions enable row level security;
 alter table public.webhook_deliveries enable row level security;
 alter table public.moota_mutations enable row level security;

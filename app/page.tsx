@@ -145,7 +145,7 @@ export default function Home() {
         <div className="status-strip">
           <div className="status-item"><span className={`status-dot ${dashboard?.config.mootaApi ? "ok" : "off"}`}/><span>Moota API</span><strong>{dashboard?.config.mootaApi ? "Configured" : "Belum dikonfigurasi"}</strong></div>
           <div className="status-item"><span className={`status-dot ${dashboard?.config.webhookSecret ? "ok" : "off"}`}/><span>Webhook secret</span><strong>{dashboard?.config.webhookSecret ? "Configured" : "Belum dikonfigurasi"}</strong></div>
-          <div className="status-item"><span className="status-dot ok"/><span>Environment</span><strong>Sandbox / V1</strong></div>
+          <div className="status-item"><span className="status-dot ok"/><span>Environment</span><strong>Sandbox / V1.1</strong></div>
         </div>
 
         <div className="stats-grid">
@@ -201,7 +201,7 @@ export default function Home() {
           )}
         </section>
 
-        <footer className="footer"><span>Moota Webhook Testing Lab <b>V1.0</b></span><span>Next.js · Supabase · Vercel</span></footer>
+        <footer className="footer"><span>Moota Webhook Testing Lab <b>V1.1</b></span><span>Next.js · Supabase · Vercel</span></footer>
       </section>
     </main>
   );

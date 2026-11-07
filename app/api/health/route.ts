@@ -5,7 +5,10 @@ export const runtime = "nodejs";
 
 export async function GET() {
   const configured = {
-    supabase: Boolean(process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY),
+    supabase: Boolean(
+      (process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL) &&
+        (process.env.SUPABASE_SECRET_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_KEY),
+    ),
     mootaApi: Boolean(process.env.MOOTA_API_TOKEN && process.env.MOOTA_SANDBOX_BANK_ID),
     webhookSecret: Boolean(process.env.MOOTA_WEBHOOK_SECRET),
     dashboardProtection: Boolean(process.env.LAB_DASHBOARD_USER && process.env.LAB_DASHBOARD_PASSWORD),
